@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="#" th:action="@{/}" th:object="${movieSearchRequest}" method="post">
+	<table>
+	    <tr>
+	    	<td width="100%">
+	    		Search By
+	    		<select th:field="*{searchBy}">
+	    				<option value="TITLE">Title</option>
+	    				<option value="GENRE">Genre</option>
+	    				<option value="YEAR">Year</option>
+	    		</select>
+	    			<span><input type="text" th:field="*{searchString}" /></span>
+			</td>	    	
+		</tr>
+	    <tr>
+	    	<td colspan="2" width="30%">
+	    		<div><input type="submit" value="Search" /></div>
+			</td>
+			<td width="60%"/>
+		</tr>		
+	</table>
+</form>    
+<div th:text="${error}">...</div>
+<div th:text="${recordFound}">...</div>
+<table border="1" style="border-collapse: separate; border-spacing: 0px;">
+    <tr data-th-each="movie : ${movieList}">
+    <td data-th-text="${movie.title}"  width="25%" valign="top">...</td>
+     <td data-th-text="${movie.genres}"  width="75%" valign="top">...</td>
+    </tr>
+</table>    
+</body>
+</html>
