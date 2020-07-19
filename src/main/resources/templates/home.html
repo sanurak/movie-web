@@ -28,7 +28,11 @@
 </form>    
 <div th:text="${error}">...</div>
 <div th:text="${recordFound}">...</div>
-<table border="1" style="border-collapse: separate; border-spacing: 0px;">
+<table border="1" style="border-collapse: separate; border-spacing: 0px;" width="100%">
+	<tr>
+		<td width="25%" align="center">Title</td>
+		<td width="75%" align="center">Genre</td>
+	</tr>
     <tr data-th-each="movie : ${movieList}">
     <td data-th-text="${movie.title}"  width="25%" valign="top">...</td>
      <td data-th-text="${movie.genres}"  width="75%" valign="top">...</td>
